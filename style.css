@@ -1,0 +1,215 @@
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#008080+21,008080+21,008080+21,e0e0e0+21 */
+background: rgb(0,128,128); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,128,128,1) 21%, rgba(0,128,128,1) 21%, rgba(0,128,128,1) 21%, rgba(224,224,224,1) 21%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,128,128,1) 21%,rgba(0,128,128,1) 21%,rgba(0,128,128,1) 21%,rgba(224,224,224,1) 21%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,128,128,1) 21%,rgba(0,128,128,1) 21%,rgba(0,128,128,1) 21%,rgba(224,224,224,1) 21%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.boolzap {
+    width: 80%;
+    height: 560px;
+    margin: auto;
+    border: 1px solid black;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+header {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(240, 240, 240);
+}
+
+.header-left {
+    width: 30%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid rgb(150, 150, 150);
+}
+.header-right {
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+main {
+    width: 100%;
+    height: 90%;
+}
+
+.user-chat {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+.single-chat {
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    padding-left: 5px;
+    width: 35px;
+}
+
+.icon{
+    color: grey;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.friend-chat-left {
+    display: flex;
+    width: 40%;
+    align-items: center;
+    float: left;
+}
+
+.friend-chat-right {
+    line-height: 50px;
+    text-align: right;
+    width: 60%;
+    float: left;
+}
+
+.friend-name p:first-child {
+    font-size: 13px;
+}
+
+.friend-name {
+    line-height: 5px;
+    font-size: 10px;
+    padding-left: 10px;
+}
+
+.chat-box {
+    font-size: 13px;
+    line-height: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.notifications {
+    background-color: aquamarine;
+}
+
+.notifications-advice p {
+    font-weight: bold;
+}
+
+.notifications-advice a {
+color: darkslategrey;
+}
+
+.input-search {
+    text-align: center;
+    background-color: rgb(240, 240, 240)
+}
+
+.start-chat {
+    width: 98%;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.user-chat {
+    overflow: auto;
+}
+
+#new-chat{
+    background-color: lightgrey;
+}
+
+.single-contact {
+    font-size: 12px;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.text-box {
+    padding-left: 10px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.chat-container div:first-child {
+    margin-top: 50px;
+}
+
+.message {
+    width: 150px;
+    padding-left: 15px;
+    border-radius: 10px;
+    clear: both;
+}
+
+.sent {
+    float: left;
+    background-color: green;
+}
+
+.received {
+    float:right;
+    background-color: lightgrey;
+}
+
+.messages-box {
+    width: 100%;
+    height: 90%;
+    background-image: url("img/chat-wallpaper.jpg");
+    background-size: contain;
+    overflow: auto;
+}
+
+.form-chat {
+    height: 10%;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-chat input {
+    color: lightslategrey;
+    height: 40px;
+    width: 80%;
+    border-radius: 5px;
+}
