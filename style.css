@@ -41,14 +41,14 @@ header {
 }
 
 .header-left {
-    width: 30%;
+    width: 35%;
     height: 100%;
     float: left;
     border-right: 1px solid rgb(150, 150, 150);
     justify-content: space-between;
 }
 .header-right {
-    width: 70%;
+    width: 65%;
     height: 100%;
     float: left;
 }
@@ -59,12 +59,12 @@ main {
 }
 
 .user-chat {
-    width: 40%;
+    width: 35%;
     height: 100%;
     float: left;
 }
 .single-chat {
-    width: 60%;
+    width: 65%;
     height: 100%;
     float: left;
 }
@@ -81,14 +81,14 @@ main {
 }
 
 .friend-chat-left {
-    width: 40%;
+    width: 35%;
     float: left;
 }
 
 .friend-chat-right {
     line-height: 50px;
     text-align: right;
-    width: 60%;
+    width: 65%;
     float: left;
 }
 
@@ -144,19 +144,24 @@ main {
 }
 
 .user-chat {
-    overflow: scroll;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
-.user-chat::-webkit-scrollbar, .messages-box::-webkit-scrollbar {
+.contacts {
+    overflow: auto;
+}
+
+.contacts::-webkit-scrollbar, .messages-box::-webkit-scrollbar {
     width: 10px;
 }
 
-.user-chat::-webkit-scrollbar-thumb, .messages-box::-webkit-scrollbar-thumb {
+.contacts::-webkit-scrollbar-thumb, .messages-box::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-.user-chat::-webkit-scrollbar-thumb:hover, .messages-box::-webkit-scrollbar-thumb:hover {
+.contacts::-webkit-scrollbar-thumb:hover, .messages-box::-webkit-scrollbar-thumb:hover {
      background: #555;
 }
 
