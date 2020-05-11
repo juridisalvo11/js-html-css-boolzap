@@ -150,7 +150,7 @@ main {
 }
 
 .contacts {
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 .contacts::-webkit-scrollbar, .messages-box::-webkit-scrollbar {
@@ -202,11 +202,14 @@ main {
 }
 
 .message {
-    width: 150px;
+    min-width: 150px;
+    margin-top: 15px;
     padding-left: 15px;
+    padding-right: 15px;
     border-radius: 10px;
     clear: both;
     position: relative;
+
 }
 
 .checks {
@@ -232,7 +235,7 @@ main {
     height: 90%;
     background-image: url("img/chat-wallpaper.jpg");
     background-size: contain;
-    /* overflow: scroll; */
+    overflow-y: scroll;
 }
 
 .checks p {
@@ -251,4 +254,9 @@ main {
     height: 40px;
     width: 80%;
     border-radius: 5px;
+}
+
+
+.template {
+    display: none;
 }

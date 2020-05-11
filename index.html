@@ -5,6 +5,7 @@
         <title>Boolzap</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/3e39139afa.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -161,19 +162,19 @@
                                 <div class="sent message">
                                     <p>Ciao</p>
                                     <div class="checks flex">
-                                        <p>16.45</p>
+                                        <p class="message-text">16.45</p>
                                         <i class="fas fa-check-double"></i>
                                     </div>
                                 </div>
                                 <div class="received message">
                                     <p>Ciao</p>
                                     <div class="checks flex">
-                                        <p>17.02</p>
+                                        <p class="message-text">17.02</p>
                                         <i class="fas fa-check-double"></i>
                                     </div>
                                 </div>
                                 <div class="sent message">
-                                    <p>Come stai?</p>
+                                    <p class="message-text">Come stai?</p>
                                     <div class="checks flex">
                                         <p>17.21</p>
                                         <i class="fas fa-check-double"></i>
@@ -186,14 +187,27 @@
                             <div class="emoticon">
                                 <i class="far fa-grin icon"></i>
                             </div>
-                            <input placeholder="Scrivi un messaggio">
+                            <input class="insert-message" placeholder="Scrivi un messaggio">
                             <div class="microphone">
-                                <i class="fas fa-microphone icon" aria-hidden="true"></i>
+                                <i class="visible fas fa-microphone icon " aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
+        </div
+        >
+        <!-- Template -->
+        
+        <div class="template">
+            <div class="received message">
+                <p class="message-text"></p>
+                <div class="checks flex">
+                    <p>17.02</p>
+                    <i class="fas fa-check-double"></i>
+                </div>
+            </div>
         </div>
+        <script src="sheet.js" charset="utf-8"></script>
     </body>
 </html>
