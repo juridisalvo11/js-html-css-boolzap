@@ -1,5 +1,6 @@
 //Intercetto click sul pulsante invia
 $('.microphone > i').click(send_message);
+
 //Imposto il tasto 'enter' per inviare il messaggio
 $('.insert-message').keypress(function(event) {
     var key = event.which;
@@ -7,6 +8,7 @@ $('.insert-message').keypress(function(event) {
         send_message()
     }
 })
+
 //Vado ad intercettare il focus sull'input invio messaggio
 $('.insert-message').focus(function(){
     //Rimuovo la classe dell'icona "microfono" e aggiungo quella dell'icona "invia messaggio" in modo da far apparire l'icona corrispondente
@@ -22,14 +24,14 @@ $('.insert-message').blur(function(){
 //Intercetto click dell'utente sul tasto Cerca
 $('.start-chat').keyup(function() {
     //vado a leggere ciò che l'utente ha scritto nell'input
-    var search = $('.start-chat').val().trim().toLowerCase();
+    var research = $('.start-chat').val().trim().toLowerCase();
     //controllo se lìutente ha scritto qualcosa
-    if (search != '') {
+    if (research != '') {
         //Vado a controllare ogni elemeneto in lista per vedere se c'è una corrispondenza con quello digitato dall'lìutente
         $('.chat-box').each(function() {
             var chat_name = $(this).find('.name').text().toLowerCase();
             //Se la ricerca dell'utente trova una corrispondenza mostrala
-            if (chat_name.search(search) != -1) {
+            if (chat_name.search(research) != -1) {
                 $(this).show();
             //Trovata la corrispondenza nascondi le altre
             } else {
@@ -44,10 +46,24 @@ $('.start-chat').keyup(function() {
 
 })
 
+$('.single-contact').click(function(){
+    $('.messages-box').removeClass('active');
+    // $('.friend-chat-left').removeClass('active');
+    $('.single-contact').removeClass('grey');
+    var contact_box = $(this).index();
+
+
+
+    $('.messages-box').eq(contact_box).addClass('active');
+    // $('.friend-chat-left').eq(contact_box).addClass('active');
+    $('.single-contact').eq(contact_box).addClass('grey');
+})
+
+
 function send_message() {
     //leggo il testo del messaggio inserito dall'utente
     var messaggio_ricevuto = $('.insert-message').val();
-    if (messaggio_ricevuto != '') {
+    if (messaggio_ricevuto.trim() != '') {
         //Copio l'elemento template relativo al messaggio di risposta
         var current_message = $('.template .message').clone();
         //Inserisco il testo letto dall'input
@@ -71,5 +87,13 @@ function send_message() {
             $('.chat-container').append(answer_message);
             //imposto il tempo di intervallo della risposta
         }, 1000);
+
+        $('.fa-check-double').click(function(){
+            $('.options-message').toggleClass('active');
+
+            $('.delete').click(function(){
+                $(current_message).remove()
+            });
+        })
     }
 }
