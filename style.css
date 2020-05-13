@@ -82,7 +82,6 @@ main {
 }
 
 .friend-chat-left {
-    /* display: none; */
     width: 35%;
     float: left;
 }
@@ -91,7 +90,7 @@ main {
     line-height: 50px;
     text-align: right;
     width: 65%;
-    float: left;
+    float: right;
 }
 
 .friend-name p:first-child {
@@ -253,19 +252,15 @@ main {
     overflow-y: scroll;
 }
 
-.messages-box.active, .options-message.active {
-    display: block;
-}
-
 .checks p {
     padding-right: 5px;
 }
 
 .options-message {
-    display : none;
+    display: none;
     position: absolute;
-    top: -25px;
-    right: -30px;
+    top: 25px;
+    right: 0px;
     width: 100px;
     border: 1px solid black;
     font-size: 12px;
@@ -291,6 +286,9 @@ main {
     padding-right: 10px;
 }
 
+.messages-box.active, .options-message.active {
+    display: block;
+}
 
 .template {
     display: none;

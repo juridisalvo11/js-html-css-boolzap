@@ -57,8 +57,16 @@ $('.single-contact').click(function(){
     $('.messages-box').eq(contact_box).addClass('active');
     // $('.friend-chat-left').eq(contact_box).addClass('active');
     $('.single-contact').eq(contact_box).addClass('grey');
+
+    var image_header = $('.contacts > .photo').eq(contact_box).clone().removeClass('saved-chat')
+
+    $('.header-right .friend-chat-left .photo').remove();
+    $('.header-right .friend-chat-left').prepend(image_header);
 })
 
+$(document).on('click', '.dropdown', function() {
+    $(this).next('.options-message').toggleClass('active');
+})
 
 function send_message() {
     //leggo il testo del messaggio inserito dall'utente
@@ -87,13 +95,5 @@ function send_message() {
             $('.chat-container').append(answer_message);
             //imposto il tempo di intervallo della risposta
         }, 1000);
-
-        $('.fa-check-double').click(function(){
-            $('.options-message').toggleClass('active');
-
-            $('.delete').click(function(){
-                $(current_message).remove()
-            });
-        })
     }
 }
