@@ -45,23 +45,45 @@ $('.start-chat').keyup(function() {
     }
 
 })
-
+//Intercetto il click sul un contatto
 $('.single-contact').click(function(){
+    //Recupero il valore dell'attributo data-chat del contatto cliccato
+    var visible_chat = $(this).attr('data-chat');
+    console.log('posizione chat: ' + visible_chat);
+    //tolgo la classe active a tutti i div messages-box con il data corrispondente
     $('.messages-box').removeClass('active');
-    // $('.friend-chat-left').removeClass('active');
-    $('.single-contact').removeClass('grey');
-    var contact_box = $(this).index();
+    //Per dar si che la chat selezionata abbia il background grigio
+    //Selezioni i single-contact rimuovendo la classe active
+    $('.single-contact').removeClass('active')
+    //Aggiungo la classe active al this (single contact) corrente
+    $(this).addClass('active');
+    //Recupero il messages-box con lo stesso data del single-contact cliccato e aggiungo la classe active
+    $('.messages-box').each(function(){
+        var current_messages = $(this).attr('data-chat')
+        console.log('posizione messaggi: ' + current_messages);
+
+        if(visible_chat == current_messages) {
+            $(this).addClass('active');
+        }
+    })
+
+    //Recupero il nome del contatto cliccato
+    var contact_name = $(this).find('.name').text();
+    var time = $(this).find()
+    //Inserisco il nome del contatto corrente nell'header della chat che sto visualizzando
+    $('.name-chat').text(contact_name)
+    //Recupero il percorso del'immagine del contatto
+    var contact_img = $(this).find('.saved-chat img').attr('src');
+    //Imposto il percorso dell'header della chat dove inserirò l'immagine corrente
+    $('.friend-chat img').attr('src', contact_img)
+})
 
 
 
-    $('.messages-box').eq(contact_box).addClass('active');
-    // $('.friend-chat-left').eq(contact_box).addClass('active');
-    $('.single-contact').eq(contact_box).addClass('grey');
+//Intercetto il click su un contatto
+//recupero il calore dell'attributo data-chat del contatto cliccato
+$('.single-contact').click(function(){
 
-    var image_header = $('.contacts > .photo').eq(contact_box).clone().removeClass('saved-chat')
-
-    $('.header-right .friend-chat-left .photo').remove();
-    $('.header-right .friend-chat-left').prepend(image_header);
 })
 
 $(document).on('click', '.dropdown', function() {

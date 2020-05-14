@@ -286,7 +286,11 @@ main {
     padding-right: 10px;
 }
 
-.messages-box.active, .options-message.active {
+.single-contact.active {
+    background-color: lightgrey;
+}
+
+.messages-box.active {
     display: block;
 }
 

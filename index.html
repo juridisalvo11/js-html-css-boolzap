@@ -27,7 +27,7 @@
                                 <img class="avatar" src="img/marco.png" alt="">
                             </div>
                             <div class="friend-name">
-                                <p>Marco</p>
+                                <p class="name-chat">Marco</p>
                                 <p>Ultimo accesso oggi alle 16.00</p>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="contacts">
-                            <div class="single-contact chat-box photo flex grey">
+                            <div class="single-contact chat-box active flex" data-chat="chat1">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/marco.png" alt="">
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat2">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/antonio.png" alt="">
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat3">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/maria.png" alt="">
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat4">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/francesco.png" alt="">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat5">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/antonella.png" alt="">
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat6">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/giovanni.png" alt="">
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat7">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/carlo.png" alt="">
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="time">17.30</div>
                             </div>
-                            <div class="single-contact chat-box photo flex">
+                            <div class="single-contact chat-box flex" data-chat="chat8">
                                 <div class="saved-chat flex">
                                     <div>
                                         <img class="avatar" src="img/michele.png" alt="">
@@ -159,7 +159,7 @@
 
                     </div>
                     <div class="single-chat">
-                        <div id="marco" class="messages-box active">
+                        <div id="marco" class="messages-box active" data-chat="chat1">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao</p>
@@ -197,7 +197,7 @@
                             </div>
 
                         </div>
-                        <div id="antonio" class="messages-box">
+                        <div id="antonio" class="messages-box" data-chat="chat2">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Antonio</p>
@@ -223,7 +223,7 @@
                             </div>
 
                         </div>
-                        <div id="maria" class="messages-box">
+                        <div id="maria" class="messages-box" data-chat="chat3">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Maria</p>
@@ -249,7 +249,7 @@
                             </div>
 
                         </div>
-                        <div id="francesco" class="messages-box">
+                        <div id="francesco" class="messages-box" data-chat="chat4">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ehi Francesco, è andata bene</p>
@@ -275,7 +275,7 @@
                             </div>
 
                         </div>
-                        <div id="antonella" class="messages-box">
+                        <div id="antonella" class="messages-box" data-chat="chat5">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Antonella, com'è andato il viaggio?</p>
@@ -301,7 +301,7 @@
                             </div>
 
                         </div>
-                        <div id="giovanni" class="messages-box">
+                        <div id="giovanni" class="messages-box" data-chat="chat6">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Giovanni, come va?</p>
@@ -327,7 +327,7 @@
                             </div>
 
                         </div>
-                        <div id="carlo" class="messages-box">
+                        <div id="carlo" class="messages-box" data-chat="chat7">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Carlo, dimmi tutto</p>
@@ -367,7 +367,7 @@
                             </div>
 
                         </div>
-                        <div id="michele" class="messages-box">
+                        <div id="michele" class="messages-box" data-chat="chat8">
                             <div class="chat-container">
                                 <div class="sent message">
                                     <p class="message-text">Ciao Michele</p>
@@ -414,7 +414,7 @@
                 <p class="message-text"></p>
                 <div class="checks flex">
                     <p>17.02</p>
-                    <i class="fas fa-check-double"></i>
+                    <i class="fas fa-check-double icona-dropdown"></i>
                     <div class="options-message">
                         <p>Message Info</p>
                         <p class="delete">Delete Message</p>
