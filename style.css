@@ -147,7 +147,7 @@ main {
 }
 
 .start-chat {
-    width: 89%;
+    width: 100%;
     margin: 4px 4px;
     padding: 8px;
     border-radius: 2px;
@@ -272,6 +272,7 @@ main {
     background-color: white;
     color: black;
     cursor: pointer;
+    z-index: 50;
 }
 
 .options-message p:hover {
@@ -294,7 +295,7 @@ main {
     padding-right: 10px;
 }
 
-.single-contact.active {
+.single-contact.grey {
     background-color: lightgrey;
 }
 
