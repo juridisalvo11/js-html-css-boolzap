@@ -252,6 +252,10 @@ main {
     overflow-y: scroll;
 }
 
+.icona-dropdown {
+    cursor: pointer;
+}
+
 .checks p {
     padding-right: 5px;
 }
@@ -267,8 +271,12 @@ main {
     padding: 5px;
     background-color: white;
     color: black;
+    cursor: pointer;
 }
 
+.options-message p:hover {
+    color: grey;
+}
 
 .form-chat {
     height: 10%;
@@ -290,7 +298,7 @@ main {
     background-color: lightgrey;
 }
 
-.messages-box.active {
+.messages-box.active, .options-message.active {
     display: block;
 }
 

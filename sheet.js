@@ -80,14 +80,26 @@ $('.single-contact').click(function(){
 
 
 
-//Intercetto il click su un contatto
-//recupero il calore dell'attributo data-chat del contatto cliccato
-$('.single-contact').click(function(){
 
+
+
+
+//Intercetto il click sull'icona-dropdawn del template
+$('.messages-box').on('click', '.icona-dropdown', function() {
+    //recupero il div options-message corrispondente al messaggio cliccato
+    $(this).siblings('.options-message').toggleClass('active')
 })
 
-$(document).on('click', '.dropdown', function() {
-    $(this).next('.options-message').toggleClass('active');
+//Intercetto il click su delete per cancellare il messaggio
+$('.messages-box').on('click', '.delete', function(){
+    //recupero l'elemento con classe delete per cancellare il messaggio
+    $(this).closest('.message').remove()
+})
+
+//Utilizzo la funzione mouseleave sul div message per chiudere automaticamente il dropdown
+$('.messages-box').on('mouseleave', '.message', function(){
+    $('.options-message.active').removeClass('active');
+
 })
 
 function send_message() {
@@ -101,7 +113,7 @@ function send_message() {
         //Aggiungo classe received per dare lo stile al messaggio ricevuto
         current_message.addClass('received');
         //Aggiungo il nuovo messaggio alla chat con il comando append
-        $('.chat-container').append(current_message);
+        $('.messages-box.active .chat-container').append(current_message);
         //Svuoto l'input
         $('.insert-message').val('');
 
@@ -114,7 +126,7 @@ function send_message() {
             //Vado ad aggiungere la classe 'sent' in modo da dare lo stile al messaggio
             answer_message.addClass('sent');
             //con il comando append vado ad inserire il messaggio completo nel contenitore
-            $('.chat-container').append(answer_message);
+            $('.messages-box.active .chat-container').append(answer_message);
             //imposto il tempo di intervallo della risposta
         }, 1000);
     }
