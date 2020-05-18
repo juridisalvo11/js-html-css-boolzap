@@ -1,62 +1,15 @@
 //AGGIUNTA DI UN MESSAGGIO CON IL PULSANTE INVIO E CON IL TASTO ENTER + RISPOSTA INTERLOCUTORE (PASSAGGI INSERITI NELLA FUNZIONE SEND_MESSAGE)
 
 //Intercetto click sul pulsante invia
-$('.microphone > i').click(function(){
-
-    var messaggio = {
-        'text' : message_handlebars.testo,
-        'classe' : message_handlebars.classe,
-    }
-        // console.log(message_handlebars.testo);
-    var html_finale = template(messaggio);
-    $('.chat-container').append(html_finale)
-});
-
-var source = $('#entry-template').html();
-//console.log(source);
-var template = Handlebars.compile(source);
-
-var message_handlebars = {
-    'ricevuto' : $('.insert-message').val(),
-    'ora' : '15.00',
-    'classe' : 'received',
-    // 'orario' : $('.time')
-}
-var message_handlebars2 = {
-    'inviato' : 'ok',
-    'ora' : '15.00',
-    'classe2' : 'sent',
-    // 'orario' : $('.time')
-}
+$('.microphone > i').click(send_message)
 
 //Imposto il tasto 'enter' per inviare il messaggio
 $('.insert-message').keypress(function(event) {
     var key = event.which;
     if (key == 13) {
-        // send_message()
-        var messaggio = {
-            'text' : $('.insert-message').val(),
-            'time-hour' : message_handlebars.ora,
-            'classe' : message_handlebars.classe,
-        }
-            // console.log(message_handlebars.testo);
-        var html_finale = template(messaggio);
-        $('.chat-container').append(html_finale)
+        send_message()
     }
 
-    setTimeout(function(){
-
-        var messaggio2 = {
-            'text' : message_handlebars.inviato,
-            'time-hour' : message_handlebars.ora,
-            'classe2' : message_handlebars.classe2,
-        }
-            // console.log(message_handlebars.testo);
-        var html_finale2 = template(messaggio2);
-        $('.chat-container').append(html_finale2)
-
-        //imposto il tempo di intervallo della risposta
-    }, 1000);
 })
 
 //CAMBIO ICONA DA ICONA MICROFONO AD ICONA INVIO MESSAGGIO
@@ -159,17 +112,36 @@ $('.messages-box').on('mouseleave', '.message', function(){
 
 //FUNZIONE PER INVIARE MESSAGGI
 function send_message() {
-    //leggo il testo del messaggio inserito dall'utente
-    var messaggio_ricevuto = $('.insert-message').val();
-    if (messaggio_ricevuto.trim() != '') {
+    //Andiamo a salvare il template in una variabile
+    var source = $('#entry-template').html();
+    //console.log(source);
+    //Tramite la libreria handlebars andiamo a inserire il notro template in una funzione per poi compilarlo
+    var template = Handlebars.compile(source);
+    //Creiamo l'oggetto messaggio che andiamo a compilare inserendo i dati collegati al template e andiamo ad inserirli nei segnaposti corrispondenti
+    var messaggio = {
+        'text' : $('.insert-message').val(),
+        'time-hour' : '15.00',
+        'classe' : 'received',
+    }
+        // console.log(message_handlebars.testo);
+    //Inseriamo il contenuto in pagina inserendo l'oggetto nella variabile che rappresenta la funzione di handlebars
+    var html_finale = template(messaggio);
+    $('.messages-box.active .chat-container').append(html_finale);
+
+    $('.insert-message').val('');
 
 
-
-        //Imposto una funzione timeout per permettere al messaggio di risposta di apparire dopo un certo intervallo di tempo
         setTimeout(function(){
 
-            $('.messages-box.active .chat-container').append(answer_message);
+            var messaggio2 = {
+                'text' : 'ok',
+                'time-hour' : '15.15',
+                'classe' : 'sent',
+            }
+                // console.log(message_handlebars.testo);
+            var html_finale2 = template(messaggio2);
+            $('.messages-box.active .chat-container').append(html_finale2)
+
             //imposto il tempo di intervallo della risposta
         }, 1000);
-    }
 }
