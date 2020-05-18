@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/3e39139afa.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
     <body>
         <div class="container">
@@ -500,12 +501,11 @@
         </div
         >
         <!-- Template -->
-
-        <div class="template">
-            <div class="message">
-                <p class="message-text"></p>
+        <script id="entry-template" type="text/x-handlebars-template">
+            <div class="message {{classe}} {{classe2}}">
+                <p class="message-text"> {{text}} </p>
                 <div class="checks flex">
-                    <p>17.02</p>
+                    <p>{{time-hour}}</p>
                     <i class="fas fa-check-double icona-dropdown"></i>
                     <div class="options-message">
                         <p>Message Info</p>
@@ -513,7 +513,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </script>
         <script src="sheet.js" charset="utf-8"></script>
     </body>
 </html>

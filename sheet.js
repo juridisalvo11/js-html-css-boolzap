@@ -1,14 +1,62 @@
 //AGGIUNTA DI UN MESSAGGIO CON IL PULSANTE INVIO E CON IL TASTO ENTER + RISPOSTA INTERLOCUTORE (PASSAGGI INSERITI NELLA FUNZIONE SEND_MESSAGE)
 
 //Intercetto click sul pulsante invia
-$('.microphone > i').click(send_message);
+$('.microphone > i').click(function(){
+
+    var messaggio = {
+        'text' : message_handlebars.testo,
+        'classe' : message_handlebars.classe,
+    }
+        // console.log(message_handlebars.testo);
+    var html_finale = template(messaggio);
+    $('.chat-container').append(html_finale)
+});
+
+var source = $('#entry-template').html();
+//console.log(source);
+var template = Handlebars.compile(source);
+
+var message_handlebars = {
+    'ricevuto' : $('.insert-message').val(),
+    'ora' : '15.00',
+    'classe' : 'received',
+    // 'orario' : $('.time')
+}
+var message_handlebars2 = {
+    'inviato' : 'ok',
+    'ora' : '15.00',
+    'classe2' : 'sent',
+    // 'orario' : $('.time')
+}
 
 //Imposto il tasto 'enter' per inviare il messaggio
 $('.insert-message').keypress(function(event) {
     var key = event.which;
     if (key == 13) {
-        send_message()
+        // send_message()
+        var messaggio = {
+            'text' : $('.insert-message').val(),
+            'time-hour' : message_handlebars.ora,
+            'classe' : message_handlebars.classe,
+        }
+            // console.log(message_handlebars.testo);
+        var html_finale = template(messaggio);
+        $('.chat-container').append(html_finale)
     }
+
+    setTimeout(function(){
+
+        var messaggio2 = {
+            'text' : message_handlebars.inviato,
+            'time-hour' : message_handlebars.ora,
+            'classe2' : message_handlebars.classe2,
+        }
+            // console.log(message_handlebars.testo);
+        var html_finale2 = template(messaggio2);
+        $('.chat-container').append(html_finale2)
+
+        //imposto il tempo di intervallo della risposta
+    }, 1000);
 })
 
 //CAMBIO ICONA DA ICONA MICROFONO AD ICONA INVIO MESSAGGIO
@@ -114,26 +162,12 @@ function send_message() {
     //leggo il testo del messaggio inserito dall'utente
     var messaggio_ricevuto = $('.insert-message').val();
     if (messaggio_ricevuto.trim() != '') {
-        //Copio l'elemento template relativo al messaggio di risposta
-        var current_message = $('.template .message').clone();
-        //Inserisco il testo letto dall'input
-        current_message.find('.message-text').text(messaggio_ricevuto);
-        //Aggiungo classe received per dare lo stile al messaggio ricevuto
-        current_message.addClass('received');
-        //Aggiungo il nuovo messaggio alla chat con il comando append
-        $('.messages-box.active .chat-container').append(current_message);
-        //Svuoto l'input
-        $('.insert-message').val('');
+
+
 
         //Imposto una funzione timeout per permettere al messaggio di risposta di apparire dopo un certo intervallo di tempo
         setTimeout(function(){
-            //Copio l'elemento template relativo al messaggio inviato
-            var answer_message = $('.template .message').clone();
-            //Cerco il tag giusto dove inserire il messaggio
-            answer_message.find('.message-text').text('Ok')
-            //Vado ad aggiungere la classe 'sent' in modo da dare lo stile al messaggio
-            answer_message.addClass('sent');
-            //con il comando append vado ad inserire il messaggio completo nel contenitore
+
             $('.messages-box.active .chat-container').append(answer_message);
             //imposto il tempo di intervallo della risposta
         }, 1000);
